@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FeatheredPlaneScene.unity
+    path: Assets/1 Scenes/0 Splash.unity
+    guid: 7b9abc6c9fc61f54f958bddcdcb5a274
+  - enabled: 1
+    path: Assets/1 Scenes/1 Loading.unity
+    guid: ba9b0a9e6d6b2e641b0b9b329771c7ff
+  - enabled: 1
+    path: Assets/1 Scenes/2 MainScreen.unity
+    guid: ad8a992862ddc8f46882aff216d9e810
+  - enabled: 1
+    path: Assets/1 Scenes/3 3DScreen.unity
+    guid: 9cde4ceb3ba084942b4bedca52a9b5a4
+  - enabled: 1
+    path: Assets/1 Scenes/4 ARGround.unity
     guid: 8252358a1e2ba7549a94df43aacec984
   m_configObjects: {}

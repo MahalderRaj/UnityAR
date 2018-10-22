@@ -26,6 +26,9 @@ ExportedObj/
 *.fbx
 *.meta
 *.mp4
+*.asset
+*.fbx
+*.meta
 
 # Unity3D generated meta files
 *.pidb.meta
