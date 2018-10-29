@@ -33,7 +33,10 @@ public class TapPanel : MonoBehaviour {
 		
 		if (Input.GetKeyDown(KeyCode.Escape))
          {
+			//PanelExit.SetActive(true);
 
+
+			
          	if(PanelDetails.activeSelf)
          	{
 				PanelDetails.SetActive(false);
@@ -48,7 +51,7 @@ public class TapPanel : MonoBehaviour {
 
          		PanelExit.SetActive(true);
          	}
-
+			
             
          }
 

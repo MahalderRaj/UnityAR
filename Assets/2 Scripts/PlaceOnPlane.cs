@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.XR;
 using UnityEngine.XR.ARFoundation;
+using System.Collections;
+using System.IO;
 
 [RequireComponent(typeof(ARSessionOrigin))]
 public class PlaceOnPlane : MonoBehaviour
@@ -81,6 +83,40 @@ public class PlaceOnPlane : MonoBehaviour
         gameObject.GetComponent<ARPlaneManager>().OnTogglePlanes(true);
         gameObject.GetComponent<ARPointCloudManager>().ShowPoints(true);
     }
+
+    public void Button_ImageCapture()
+    {
+        //ScreenCapture.CaptureScreenshot("JD_Tractor_"+System.DateTime.Now.ToString("yyyy-MM-dd-HHmmss"));
+
+        if(!m_screenShotLock)
+        {
+            m_screenShotLock = true;
+             StartCoroutine(TakeScreenShotCo());
+        }
+    }
+
+
+    private bool m_screenShotLock = false;
+ 
+     private void LateUpdate()
+     {
+         if (Input.GetKeyDown(KeyCode.S) && !m_screenShotLock)
+         {
+             m_screenShotLock = true;
+             StartCoroutine(TakeScreenShotCo());
+         }
+     }
+ 
+     private IEnumerator TakeScreenShotCo()
+     {
+         yield return new WaitForEndOfFrame();
+ 
+         var directory = new DirectoryInfo(Application.dataPath);
+         var path = Path.Combine(directory.Parent.FullName, string.Format("JD_Tractor_{0}.png", System.DateTime.Now.ToString("yyyyMMdd_Hmmss")));
+         Debug.Log("Taking screenshot to " + path);
+         ScreenCapture.CaptureScreenshot(path);
+         m_screenShotLock = false;
+     }
 
     public void Button_ApplicationQuit(){
     	Application.Quit();

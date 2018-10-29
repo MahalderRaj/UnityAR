@@ -12,4 +12,6 @@ public class LookAtMe : MonoBehaviour {
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward,
             Camera.main.transform.rotation * Vector3.up);
     }
+
+    
 }

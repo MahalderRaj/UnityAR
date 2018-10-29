@@ -4,14 +4,26 @@ using UnityEngine;
 
 public class HotspotMan : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+
+	public Transform[] HotspotTVs;
+	public Transform[] HotspotTVCanvas;
+
+
+	void Start()
+	{
 		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+
+		foreach(Transform tv in HotspotTVs)
+		{
+			tv.gameObject.SetActive(false);
+		}
+
+
+		foreach(Transform tvCan in HotspotTVCanvas)
+		{
+			tvCan.gameObject.SetActive(false);
+		}
 	}
 
 
@@ -35,6 +47,44 @@ public class HotspotMan : MonoBehaviour {
 			}
 		}
 		*/
+	}
+
+
+	public void ButtonVideoHotspotTV(int index)
+	{
+
+		foreach(Transform tv in HotspotTVs)
+		{
+			tv.gameObject.SetActive(false);
+		}
+
+		foreach(Transform tvCan in HotspotTVCanvas)
+		{
+			tvCan.gameObject.SetActive(false);
+		}
+
+		HotspotTVs[index].gameObject.SetActive(true);
+		HotspotTVCanvas[index].gameObject.SetActive(true);
+
+	}
+
+
+
+	void Update()
+	{
+
+
+
+		if(Input.GetKeyDown(KeyCode.A))
+		{
+			ButtonVideoHotspotTV(1);
+		}
+
+		if(Input.GetKeyDown(KeyCode.X))
+		{
+			HotspotTVs[1].gameObject.SetActive(false);
+		HotspotTVCanvas[1].gameObject.SetActive(false);
+		}	
 	}
 
 }
